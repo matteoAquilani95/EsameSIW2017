@@ -40,11 +40,11 @@
                 <li><a href='<spring:url value="/" />'>Home</a></li>
                 
                 <security:authorize access="hasRole('ROLE_ADMIN')">
-               		<li><a href="<spring:url value="/" />">Users</a></li>
+               		<li><a href="<spring:url value="/users" />">Users</a></li>
                	</security:authorize>
                	
              	<security:authorize access="! isAuthenticated()">
-             		<li><a href="<spring:url value="/" />">Register</a></li>
+             		<li><a href="<spring:url value="/register" />">Register</a></li>
              		<li><a href="<spring:url value="/login" />">Login</a></li>
              	</security:authorize>
               	
@@ -57,11 +57,11 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
 	</div>
-	
+	<footer> &copy; Matteo </footer>
 </div>
 
 
-<footer> &copy; Matteo </footer>
+
 </body>
 </html>
 
