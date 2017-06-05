@@ -9,6 +9,9 @@
 	<mvc:annotation-driven />
 	
 	<context:component-scan base-package="it.uniroma3.controller" />
+   	<context:component-scan base-package="it.uniroma3.service" />
+   	<context:component-scan base-package="it.uniroma3.repository" />
+   	<context:component-scan base-package="it.uniroma3.Galleria" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">

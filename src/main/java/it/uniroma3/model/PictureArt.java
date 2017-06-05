@@ -10,23 +10,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+
 public class PictureArt {
 	
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
 	private Long id;
 	
 	private String title;
 	
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
 	private Date creationDate;
 	
 	private String technique;
 	
 	private String dimensioni;
 	
-	@ManyToOne
+	//@ManyToOne
 	private Artist artist;
 
 	public Long getId() {

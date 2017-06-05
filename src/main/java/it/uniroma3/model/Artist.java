@@ -11,11 +11,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+
 public class Artist {
 	
-	@Id
-	@GeneratedValue
+	//@Id
+	//@GeneratedValue
 	private Long id;
 	
 	private String name;
@@ -23,12 +23,12 @@ public class Artist {
 	private String surname;
 	
 	private String nationality;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date deathDate;
 	
-	@OneToMany(mappedBy="artist", cascade = CascadeType.REMOVE)
+	//@OneToMany(mappedBy="artist", cascade = CascadeType.REMOVE)
 	private List<PictureArt> pictures;
 
 	public Long getId() {
