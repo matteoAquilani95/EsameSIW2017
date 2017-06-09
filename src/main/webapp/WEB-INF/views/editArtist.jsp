@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../layout/view-taglib.jsp"%>
+    <%@ include file="../layout/view-taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title> Nuovo Artista </title>
+<title>Edit artist</title>
 </head>
 <body>
 
-	<div class="container">
-		<form:form commandName="artist" cssClass="form-horizontal">
+<div class="container">
+		<form:form commandName="artistEdit" cssClass="form-horizontal">
 	
 		<c:if test="${param.success eq true }">
-			<div class="alert alert-success"> Artista Inserito! </div>
+			<div class="alert alert-success"> Artista Modificato! </div>
 		</c:if>
 	
 		<div class="form-group">
@@ -41,7 +41,7 @@
 		
 		<div class="form-group">
 			<div class="col-sm-2">
-				<input type="submit" value="Save" class="btn btn-lg btn-primary" />
+				<input type="submit" value="Save" class="btn btn-lg btn-warning" />
 			</div>
 		</div>
 		

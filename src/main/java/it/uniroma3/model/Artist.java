@@ -19,14 +19,19 @@ public class Artist {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	@Size(min=1,message="this camp can't be null")
 	private String name;
+	
 	@Size(min=1,message="this camp can't be null")
 	private String surname;
+	
 	@Size(min=1,message="this camp can't be null")
 	private String nationality;
+	
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
+	
 	@Temporal(TemporalType.DATE)
 	private Date deathDate;
 	

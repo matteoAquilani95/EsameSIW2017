@@ -35,6 +35,15 @@ public class ArtistService {
 		artistRep.save(artist);
 	}
 	
+	public void Edit(Artist artist){
+		Artist artistOld = artistRep.findOne(artist.getId());
+		artistRep.delete(artistOld.getId());
+		artistOld.setName(artist.getName());
+		artistOld.setSurname(artist.getSurname());
+		artistOld.setNationality(artist.getNationality());
+		artistRep.save(artistOld);
+	}
+	
 	public void delete(Long id){
 		artistRep.delete(id);
 	}

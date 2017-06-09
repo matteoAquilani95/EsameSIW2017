@@ -10,7 +10,8 @@
 	<div class="container">
 		<ul class="list-group">
 			<c:forEach items="${artists}" var="artist">
-				<li class="list-group-item">${artist.name}</li>
+				<a href="<spring:url value="/artists/${artist.id}" />" class="list-group-item">${artist.name}</a>
+				<br>
 			</c:forEach>
 		</ul>
 	</div>

@@ -57,7 +57,6 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
 	</div>
-	<footer> &copy; Matteo </footer>
 </div>
 
 
