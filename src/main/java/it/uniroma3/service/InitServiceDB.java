@@ -1,6 +1,7 @@
 package it.uniroma3.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import it.uniroma3.model.Artist;
 import it.uniroma3.model.Role;
 import it.uniroma3.model.User;
+import it.uniroma3.repository.ArtistRepository;
 import it.uniroma3.repository.RoleRepository;
 import it.uniroma3.repository.UserRepository;
 
@@ -24,6 +27,9 @@ public class InitServiceDB {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ArtistRepository artistRepository;
 	
 	@PostConstruct
 	public void init(){
@@ -38,6 +44,7 @@ public class InitServiceDB {
 		
 		User userAdmin = new User();
 		userAdmin.setName("admin");
+		userAdmin.setEmail("admin@gmail.com");
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		userAdmin.setPassword(encoder.encode("admin"));
 		userAdmin.setEnabled(true);
@@ -46,6 +53,13 @@ public class InitServiceDB {
 		roles.add(roleUser);
 		userAdmin.setRoles(roles);
 		userRepository.save(userAdmin);
+		
+		Artist artist = new Artist();
+		artist.setName("Michelangelo");
+		artist.setSurname("Buenarroti");
+		artist.setNationality("Italy");
+		artist.setDateOfBirth(new Date("1/5/1890"));
+		artistRepository.save(artist);
 	}
 
 }

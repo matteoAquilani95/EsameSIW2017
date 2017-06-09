@@ -7,16 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
+@Entity
 public class Role {
 	
-//	@Id
-//	@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String name;
 	
-//	@ManyToMany(mappedBy="roles")
+	@ManyToMany(mappedBy="roles")
 	private List<User> users;
 
 	public Long getId() {

@@ -1,7 +1,6 @@
 package it.uniroma3.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,24 +8,27 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
-
+@Entity
 public class PictureArt {
 	
-//	@Id
-//	@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
-	
+	@NotNull
 	private String title;
 	
-//	@Temporal(TemporalType.DATE)
+	private String link; //dove vengono salvati i quadri
+	
+	@Temporal(TemporalType.DATE)
 	private Date creationDate;
 	
 	private String technique;
 	
 	private String dimensioni;
 	
-	//@ManyToOne
+	@ManyToOne
 	private Artist artist;
 
 	public Long getId() {

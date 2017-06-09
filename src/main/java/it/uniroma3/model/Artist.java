@@ -10,25 +10,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
-
+@Entity
 public class Artist {
 	
-	//@Id
-	//@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
-	
+	@Size(min=1,message="this camp can't be null")
 	private String name;
-	
+	@Size(min=1,message="this camp can't be null")
 	private String surname;
-	
+	@Size(min=1,message="this camp can't be null")
 	private String nationality;
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
-	//@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private Date deathDate;
 	
-	//@OneToMany(mappedBy="artist", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="artist", cascade = CascadeType.REMOVE)
 	private List<PictureArt> pictures;
 
 	public Long getId() {
