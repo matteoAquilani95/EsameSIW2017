@@ -27,8 +27,8 @@
 		<div class="panel panel-danger">
 			<div class="panel-heading">Delete Section</div>
 			<div class="panel-body">
-				<a href="<spring:url value="/artists/edit/${artist.id}" />"
-					class="btn btn-warning btn-lg disabled"> Edit </a> 
+				<a href="<spring:url value="/edit/${artist.id}" />"
+					class="btn btn-warning btn-lg"> Edit </a> 
 				<a href="<spring:url value="/artists/remove/${artist.id}" />"
 					class="btn btn-danger btn-lg"> Remove </a>
 			</div>

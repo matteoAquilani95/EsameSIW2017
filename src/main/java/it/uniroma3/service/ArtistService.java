@@ -35,10 +35,6 @@ public class ArtistService {
 		artistRep.save(artist);
 	}
 	
-//	public void Edit(Artist artist){
-//		artistRep.save(artist);
-//	}
-	
 	public void delete(Long id){
 		artistRep.delete(id);
 	}

@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-		<form:form commandName="artistEdit" cssClass="form-horizontal">
+		<form:form commandName="artist" cssClass="form-horizontal">
 	
 		<c:if test="${param.success eq true }">
 			<div class="alert alert-success"> Artista Modificato! </div>
@@ -38,6 +38,23 @@
 				<form:errors path="nationality"/>
 			</div>
 		</div>
+		
+		<div class="form-group">
+			<label for="dateOfBirth" class="col-sm-2 control-label"> Date Of Birth: </label>
+			<div class="col-sm-10">
+				<form:input path="dateOfBirth" cssClass="form-control" />
+				<form:errors path="dateOfBirth"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="deathDate" class="col-sm-2 control-label"> Death Date: </label>
+			<div class="col-sm-10">
+				<form:input path="deathDate" cssClass="form-control" />
+				<form:errors path="deathDate"/>
+			</div>
+		</div>
+		
 		
 		<div class="form-group">
 			<div class="col-sm-2">

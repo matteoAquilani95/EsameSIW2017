@@ -71,18 +71,22 @@ public class ArtistController {
 	
 	//edit l'artista
 	
-//	@RequestMapping("/artists/edit/{id}")
-//	public String editArtist(@PathVariable Long id, Model model){
-//		Artist artist = artistService.findOne(id);
-//		model.addAttribute("artistEdit", artist);
-//		return "editArtist";
-//	}
-//	
-//	@RequestMapping(value="/artistEdit", method = RequestMethod.POST)
-//	public String editCrudArtist(@Valid @ModelAttribute("artist") Artist artist, BindingResult result){
-//		artistService.Edit(artist);
-//		return "redirect:/artists";
-//	}
+	@RequestMapping("/edit/{id}")
+	public String editArtist(@PathVariable Long id, Model model){
+		Artist artist = artistService.findOne(id);
+		model.addAttribute("artist", artist);
+		return "editArtist";
+	}
+	
+	@RequestMapping(value="/edit/{id}", method = RequestMethod.POST)
+	public ModelAndView editCrudArtist(@PathVariable Long id, @ModelAttribute("artist") Artist artist, BindingResult result){
+		if(result.hasErrors())
+			return new ModelAndView("editArtist","artist", artist);
+		else{
+			artistService.save(artist);
+			return new ModelAndView("redirect:/artists");
+		}
+	}
 	
 
 }

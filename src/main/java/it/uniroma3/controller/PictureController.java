@@ -50,16 +50,6 @@ public class PictureController {
 	@RequestMapping(value="/picture/{id}", method = RequestMethod.POST)
 	public ModelAndView newPicture(@PathVariable("id") Long id,@Valid @ModelAttribute("picture") PictureArt picture, BindingResult result){
 		if(result.hasErrors()){
-//			if(picture.getTitle().equals(""))
-//				return new ModelAndView("redirect:/picture/"+id,"error","title can't be null");
-//			if(picture.getCreationDate().getClass()!= Long.class)
-//				return new ModelAndView("redirect:/picture/"+id,"error","creation date must be a number");
-//			if(picture.getTechnique().equals(""))
-//				return new ModelAndView("redirect:/picture/"+id,"error","technique can't be null");
-//			if(picture.getDimension().equals(""))
-//				return new ModelAndView("redirect:/picture/"+id,"error","dimension can't be null");
-//			
-//			return new ModelAndView("redirect:/picture/"+id,"error","complete this form");
 			return new ModelAndView("NewPicture", "artistID", id);
 		}
 		else{
