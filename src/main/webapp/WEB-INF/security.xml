@@ -10,6 +10,9 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/artist**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/artists**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/artists/**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/account**" access="hasRole('ROLE_USER')"/>
 		<form-login login-page="/login"/>
 		<logout logout-url="/logout"/>

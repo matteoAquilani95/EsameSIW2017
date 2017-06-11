@@ -56,9 +56,9 @@ public class InitServiceDB {
 		
 		Artist artist = new Artist();
 		artist.setName("Michelangelo");
-		artist.setSurname("Buenarroti");
+		artist.setSurname("Buonarroti");
 		artist.setNationality("Italy");
-		artist.setDateOfBirth(new Date("1/5/1890"));
+		artist.setDateOfBirth(new Date("1475/3/6"));
 		artistRepository.save(artist);
 	}
 

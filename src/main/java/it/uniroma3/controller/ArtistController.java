@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.model.Artist;
+import it.uniroma3.repository.ArtistRepository;
 import it.uniroma3.service.ArtistService;
 
 @Controller
@@ -21,24 +22,18 @@ public class ArtistController {
 	@Autowired
 	private ArtistService artistService;
 	
+	//construct
+	
 	@ModelAttribute("artist")
 	public Artist constructArtist(){
 		return new Artist();
 	}
 	
-	@ModelAttribute("artistEdit")
-	public Artist constructEditArtist(){
-		return new Artist();
-	}
+	//new Artist
 	
 	@RequestMapping("/artist")
 	public String showArtistForm(){
 		return "newArtist";
-	}
-	
-	@RequestMapping("/EditArtist")
-	public String showArtistEditForm(){
-		return "editArtist";
 	}
 	
 	@RequestMapping(value="/artist", method = RequestMethod.POST)
@@ -50,6 +45,8 @@ public class ArtistController {
 			return "redirect:/artist?success=true";
 		}
 	}
+	
+	//Get Artist
 	
 	@RequestMapping("/artists")
 	public String listArtist(Model model){
@@ -64,31 +61,28 @@ public class ArtistController {
 		return "artist-detail";
 	}
 	
+	//Delete Artist
+	
 	@RequestMapping("/artists/remove/{id}")
 	public String deleteArtista(@PathVariable Long id){
 		artistService.delete(id);
 		return "redirect:/artists";
 	}
 	
-	@RequestMapping(value="/artistEdit", method = RequestMethod.POST)
-	public String ReditArtist(@Valid @ModelAttribute("artist") Artist artist, BindingResult result){
-		if(result.hasErrors())
-			return "editArtist";
-		else{
-			artistService.Edit(artist);
-			return "redirect:/EditArtist?success=true";
-		}
-	}
+	//edit l'artista
 	
-	@RequestMapping("/artists/edit/{id}")
-	public ModelAndView editArtist(@PathVariable Long id){
-		Artist artist = artistService.findOne(id);
-		ModelAndView model = new ModelAndView("editArtist");
-		model.addObject("artist", artist);
-		return model;
-	}
-	
-	
+//	@RequestMapping("/artists/edit/{id}")
+//	public String editArtist(@PathVariable Long id, Model model){
+//		Artist artist = artistService.findOne(id);
+//		model.addAttribute("artistEdit", artist);
+//		return "editArtist";
+//	}
+//	
+//	@RequestMapping(value="/artistEdit", method = RequestMethod.POST)
+//	public String editCrudArtist(@Valid @ModelAttribute("artist") Artist artist, BindingResult result){
+//		artistService.Edit(artist);
+//		return "redirect:/artists";
+//	}
 	
 
 }

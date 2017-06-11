@@ -9,6 +9,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 public class PictureArt {
@@ -16,17 +20,19 @@ public class PictureArt {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@NotNull
+	
+	@Size(min=1, message="this camp can't be null")
 	private String title;
 	
-	private String link; //dove vengono salvati i quadri
+	private String link; //dove viene salvata la foto del quadro
 	
-	@Temporal(TemporalType.DATE)
-	private Date creationDate;
+	@NumberFormat
+	private Long creationDate;
 	
+	@Size(min=1, message="this camp can't be null")
 	private String technique;
 	
-	private String dimensioni;
+	private String dimension;
 	
 	@ManyToOne
 	private Artist artist;
@@ -47,11 +53,11 @@ public class PictureArt {
 		this.title = title;
 	}
 
-	public Date getCreationDate() {
+	public Long getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(Long creationDate) {
 		this.creationDate = creationDate;
 	}
 
@@ -63,12 +69,20 @@ public class PictureArt {
 		this.technique = technique;
 	}
 
-	public String getDimensioni() {
-		return dimensioni;
+	public String getLink() {
+		return link;
 	}
 
-	public void setDimensioni(String dimensioni) {
-		this.dimensioni = dimensioni;
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(String dimension) {
+		this.dimension = dimension;
 	}
 
 	public Artist getArtist() {

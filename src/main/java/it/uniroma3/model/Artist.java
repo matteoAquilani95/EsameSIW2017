@@ -30,6 +30,7 @@ public class Artist {
 	private String nationality;
 	
 	@Temporal(TemporalType.DATE)
+	@Past
 	private Date dateOfBirth;
 	
 	@Temporal(TemporalType.DATE)

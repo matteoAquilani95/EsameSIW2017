@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Nuovo Artista </title>
+<title> New Artist </title>
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 		<form:form commandName="artist" cssClass="form-horizontal">
 	
 		<c:if test="${param.success eq true }">
-			<div class="alert alert-success"> Artista Inserito! </div>
+			<div class="alert alert-success"> Insert Artist Success! </div>
 		</c:if>
 	
 		<div class="form-group">
@@ -24,7 +24,7 @@
 		</div>
 		
 		<div class="form-group">
-			<label for="name" class="col-sm-2 control-label"> Surname: </label>
+			<label for="surname" class="col-sm-2 control-label"> Surname: </label>
 			<div class="col-sm-10">
 				<form:input path="surname" cssClass="form-control" />
 				<form:errors path="surname"/>
@@ -32,7 +32,7 @@
 		</div>
 		
 		<div class="form-group">
-			<label for="name" class="col-sm-2 control-label"> Nationality: </label>
+			<label for="nationality" class="col-sm-2 control-label"> Nationality: </label>
 			<div class="col-sm-10">
 				<form:input path="nationality" cssClass="form-control" />
 				<form:errors path="nationality"/>
@@ -40,11 +40,29 @@
 		</div>
 		
 		<div class="form-group">
-			<div class="col-sm-2">
-				<input type="submit" value="Save" class="btn btn-lg btn-primary" />
+			<label for="dateOfBirth" class="col-sm-2 control-label"> Date Of Birth: </label>
+			<div class="col-sm-10">
+				<form:input path="dateOfBirth" cssClass="form-control" />
+				<form:errors path="dateOfBirth"/>
 			</div>
 		</div>
 		
+		<div class="form-group">
+			<label for="deathDate" class="col-sm-2 control-label"> Death Date: </label>
+			<div class="col-sm-10">
+				<form:input path="deathDate" cssClass="form-control" />
+				<form:errors path="deathDate"/>
+			</div>
+		</div>
+
+			<center>
+				<div class="form-group">
+					<div class="col-sm-2">
+						<input type="submit" value="Save" class="btn btn-lg btn-primary" />
+					</div>
+				</div>
+			</center>
+
 		</form:form>
 	</div>
 

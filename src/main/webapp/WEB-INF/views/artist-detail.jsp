@@ -13,12 +13,26 @@
 		<p>Name: ${artist.name}</p>
 		<p>Surname: ${artist.surname}</p>
 		<p>Nationality: ${artist.nationality}</p>
-		<br> 
-		<p><a href="<spring:url value="/artists/edit/${artist.id}" />"
-			class="btn btn-warning btn-lg"> Edit </a>
-			<a href="<spring:url value="/artists/remove/${artist.id}" />" 
-			    class="btn btn-danger btn-lg"> Remove </a>
-	    </p>
+		<p>Date of birth : ${artist.dateOfBirth}</p>
+		<p>Death Date: ${artist.deathDate}</p>
+		<br>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">Add Section</div>
+			<div class="panel-body">
+				<a href="<spring:url value="/picture/${artist.id}" />" 
+				     				class="btn btn-primary btn-lg"> Add Picture </a>
+			</div>
+		</div>
+		<div class="panel panel-danger">
+			<div class="panel-heading">Delete Section</div>
+			<div class="panel-body">
+				<a href="<spring:url value="/artists/edit/${artist.id}" />"
+					class="btn btn-warning btn-lg disabled"> Edit </a> 
+				<a href="<spring:url value="/artists/remove/${artist.id}" />"
+					class="btn btn-danger btn-lg"> Remove </a>
+			</div>
+		</div>
 	</div>
 
 </body>
