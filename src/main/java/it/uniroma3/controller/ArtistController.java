@@ -56,7 +56,7 @@ public class ArtistController {
 	
 	@RequestMapping("/artists/{id}")
 	public String getArtista(@PathVariable Long id, Model model){
-		Artist artist = artistService.findOne(id);
+		Artist artist = artistService.findOneWithPictures(id);
 		model.addAttribute("artist", artist);
 		return "artist-detail";
 	}

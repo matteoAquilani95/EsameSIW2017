@@ -24,6 +24,22 @@
 				     				class="btn btn-primary btn-lg"> Add Picture </a>
 			</div>
 		</div>
+		
+		<div class="row">
+    		<div class="col-md-4">
+      			<div class="thumbnail">
+      				<c:forEach var="pictureArt" items="${artist.pictures}">
+        				<c:out value="${pictureArt.title}" />
+        			<div class="caption">
+            				<c:out value="${pictureArt.creationDate}" />
+            				<c:out value="${pictureArt.technique}" />
+          			</div>
+          			</c:forEach>
+      			</div>
+    		</div>
+    	</div>
+		
+		
 		<div class="panel panel-danger">
 			<div class="panel-heading">Delete Section</div>
 			<div class="panel-body">

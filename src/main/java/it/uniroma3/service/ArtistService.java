@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.model.Artist;
-import it.uniroma3.model.User;
+import it.uniroma3.model.PictureArt;
 import it.uniroma3.repository.ArtistRepository;
+import it.uniroma3.repository.PictureRepository;
 
 @Service
 @Transactional
@@ -17,6 +18,8 @@ public class ArtistService {
 	
 	@Autowired
 	private ArtistRepository artistRep;
+	@Autowired
+	private PictureRepository pictureRep;
 	
 	public List<Artist> findAll(){
 		return artistRep.findAll();
@@ -37,6 +40,13 @@ public class ArtistService {
 	
 	public void delete(Long id){
 		artistRep.delete(id);
+	}
+
+	public Artist findOneWithPictures(Long id) {
+		Artist artist = findOne(id);
+		List<PictureArt> pictures = pictureRep.findByArtist(artist);
+		artist.setPictures(pictures);
+		return artist;
 	}
 
 }

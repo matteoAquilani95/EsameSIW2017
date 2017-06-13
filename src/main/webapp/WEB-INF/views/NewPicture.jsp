@@ -11,7 +11,7 @@
 <body>
 
 	<div class="container">
-		<form:form commandName="picture" method="post" cssClass="form-horizontal">
+		<form:form commandName="picture" method="post" cssClass="form-horizontal" enctype="multipart/form-data">
 
 			<c:if test="${param.success eq true }">
 				<div class="alert alert-success">Insert Picture Success!</div>
@@ -52,12 +52,12 @@
 				</div>
 			</div>
 
-			<%-- <div class="form-group">
+			<div class="form-group">
 				<label for="dimension" class="col-sm-2 control-label"> Picture: </label>
 				<div class="col-sm-10">
 					<input type="file" name="file"/> <label>${errorFile}</label>
 				</div>
-			</div> --%>
+			</div>
 
 			<div class="form-group">
 				<div class="col-sm-2"> 

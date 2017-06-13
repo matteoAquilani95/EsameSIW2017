@@ -5,12 +5,9 @@ import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import it.uniroma3.model.Artist;
-import it.uniroma3.service.ArtistService;
 import it.uniroma3.service.UserService;
 
 @Controller
@@ -18,8 +15,6 @@ public class AdminController {
 
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private ArtistService artistService;
 	
 	
 	@RequestMapping("/account")
