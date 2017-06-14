@@ -14,7 +14,7 @@
 	<form:form commandName="user" cssClass="form-horizontal registrationForm">
 	
 		<c:if test="${param.success eq true }">
-			<div class="alert alert-success">Registrazione effettuata con successo!</div>
+			<div class="alert alert-success">Registration completed! <a href='<spring:url value="/login"/>'> Login</a></div>
 		</c:if>
 	
 		<div class="form-group">

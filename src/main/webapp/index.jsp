@@ -11,7 +11,7 @@
 	<div class="container">
 		
 		<div align="center">
-			<h1>Welcome, User</h1>
+			<h1>Welcome in this Gallery of Art</h1>
 		</div>
 		<security:authorize access="isAuthenticated()">
 		<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchArtist"/>'>

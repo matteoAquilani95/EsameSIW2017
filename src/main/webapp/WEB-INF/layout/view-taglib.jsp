@@ -43,11 +43,6 @@
                		<li><a href="<spring:url value="/users" />">Users</a></li>
                		<li><a href="<spring:url value="/account" />">My account</a></li>
                	</security:authorize>
-               	
-             	<security:authorize access="! isAuthenticated()">
-             		<li><a href="<spring:url value="/register" />">Register</a></li>
-             		<li><a href="<spring:url value="/login" />">Login</a></li>
-             	</security:authorize>
               	
               	<security:authorize access="isAuthenticated()">
               	<li><a href="<spring:url value="/artists" />">List Artists</a></li>
@@ -55,6 +50,16 @@
               	</security:authorize>
               
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+            	<security:authorize access="! isAuthenticated()">
+      				<li><a href="<spring:url value="/register" />">
+      					<span class="glyphicon glyphicon-user"></span> Sign Up</a>
+      				</li>
+     			 	<li><a href="<spring:url value="/login" />">
+     			 		<span class="glyphicon glyphicon-log-in"></span> Login</a>
+     			 	</li>
+     			</security:authorize>
+    		</ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
 	</div>
