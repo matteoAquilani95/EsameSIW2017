@@ -22,7 +22,7 @@ public class PictureArt {
 	private String link; //dove viene salvata la foto del quadro
 	
 	@NumberFormat
-	private Long creationDate;
+	private Integer creationDate;
 	
 	@Size(min=1, message="this camp can't be null")
 	private String technique;
@@ -48,11 +48,11 @@ public class PictureArt {
 		this.title = title;
 	}
 
-	public Long getCreationDate() {
+	public Integer getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Long creationDate) {
+	public void setCreationDate(Integer creationDate) {
 		this.creationDate = creationDate;
 	}
 

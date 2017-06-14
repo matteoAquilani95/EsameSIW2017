@@ -9,7 +9,7 @@
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/css/**" location="/resources/assets/css/" />
 	<mvc:resources mapping="/images/**" location="/resources/assets/images/" />
-	<mvc:resources mapping="/WEB-INF/pictureArt/**" location="/WEB-INF/resources/pictureArt/" />
+	<mvc:resources mapping="/WEB-INF/resources/pictureArt/**" location="/WEB-INF/resources/pictureArt/" />
 	
 	
 	<context:component-scan base-package="it.uniroma3.controller" />

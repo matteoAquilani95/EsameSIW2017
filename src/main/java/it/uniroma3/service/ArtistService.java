@@ -49,4 +49,11 @@ public class ArtistService {
 		return artist;
 	}
 
+	public Artist findOneWithNameWithPictures(String name) {
+		Artist artist = artistRep.findByName(name);
+		List<PictureArt> pictures = pictureRep.findByArtist(artist);
+		artist.setPictures(pictures);
+		return artist;
+	}
+
 }

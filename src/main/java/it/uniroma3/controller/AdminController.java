@@ -19,8 +19,8 @@ public class AdminController {
 	
 	@RequestMapping("/account")
 	public String account(Model model, Principal principal) {
-		String nameUser = principal.getName(); // riporta il nome dell'user
-		model.addAttribute("user", userService.findOneWithName(nameUser));
+		String emailUser = principal.getName(); // riporta il email dell'user
+		model.addAttribute("user", userService.findOneWithEmail(emailUser));
 		return "user-account";
 	}
 	

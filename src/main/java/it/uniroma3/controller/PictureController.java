@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,13 @@ public class PictureController {
 		ModelAndView model = new ModelAndView("NewPicture");
 		model.addObject("artistID", artist.getId());
 		return model;
+	}
+	
+	@RequestMapping("/picture/remove/{id}")
+	public String removePicture(@PathVariable("id") Long id){
+		Artist artist = pictureService.findOne(id).getArtist();
+		pictureService.remove(id);
+		return "redirect:/artists/"+artist.getId();
 	}
 
 	//pictureArt

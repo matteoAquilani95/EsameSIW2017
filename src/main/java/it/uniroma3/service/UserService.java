@@ -52,4 +52,9 @@ public class UserService {
 		userRep.delete(id);		
 	}
 
+	public User findOneWithEmail(String emailUser) {
+		User user = userRep.findByEmail(emailUser);
+		return findOne(user.getId());
+	}
+
 }
