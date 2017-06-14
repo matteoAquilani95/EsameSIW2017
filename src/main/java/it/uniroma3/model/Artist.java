@@ -36,7 +36,7 @@ public class Artist {
 	@Temporal(TemporalType.DATE)
 	private Date deathDate;
 	
-	@OneToMany(mappedBy="artist", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="artist", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<PictureArt> pictures;
 
 	public Long getId() {

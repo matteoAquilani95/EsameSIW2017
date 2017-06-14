@@ -22,30 +22,10 @@
 			<div class="panel-body">
 				<a href="<spring:url value="/picture/${artist.id}" />" 
 				     				class="btn btn-primary btn-lg"> Add Picture </a>
+				<a href="<spring:url value="/pictureList/${artist.id}" />" 
+				     				class="btn btn-success btn-lg"> List Picture </a>
 			</div>
 		</div>
-		
-		<div class="row">
-    		<div class="col-md-4">
-      			<div class="thumbnail">
-      			
-      				
-      				<c:forEach var="pictureArt" items="${picturesList}">
-      					 <a href="<c:url value="/pictureArt/${artist.id}/${pictureArt.link}" />" target="_blank">
-         				 <img src="<c:url value="/pictureArt/${artist.id}/${pictureArt.link}" />" 
-         				                    alt="${pictureArt.title}" style="width:100%">
-        				</a>
-        			<div class="caption">
-        					<c:out value="${pictureArt.title}" />
-            				<c:out value="${pictureArt.creationDate}" />
-            				<c:out value="${pictureArt.technique}" />
-            				<a href="<spring:url value="/picture/remove/${pictureArt.id}" />"
-							class="btn btn-danger"> Remove </a>
-          			</div>
-          			</c:forEach>
-      			</div>
-    		</div>
-    	</div>
 		
 		
 		<div class="panel panel-warning">

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/view-taglib.jsp"%>
-<%@ page
-	import="it.uniroma3.service.*, java.util.List, it.uniroma3.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,9 +51,10 @@
 			</div>
 
 			<div class="form-group">
-				<label for="dimension" class="col-sm-2 control-label"> Picture: </label>
+				<label for="dimension" class="col-sm-2 control-label"> Picture URL: </label>
 				<div class="col-sm-10">
-					<input type="file" name="file"/> <label>${errorFile}</label>
+					<form:input type="url" path="link" cssClass="form-control"/>
+					<form:errors path="link"/>
 				</div>
 			</div>
 

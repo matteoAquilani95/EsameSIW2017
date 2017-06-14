@@ -2,6 +2,7 @@ package it.uniroma3.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,9 +13,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.model.Artist;
+import it.uniroma3.model.PictureArt;
 import it.uniroma3.model.Role;
 import it.uniroma3.model.User;
 import it.uniroma3.repository.ArtistRepository;
+import it.uniroma3.repository.PictureRepository;
 import it.uniroma3.repository.RoleRepository;
 import it.uniroma3.repository.UserRepository;
 
@@ -30,6 +33,8 @@ public class InitServiceDB {
 	
 	@Autowired
 	private ArtistRepository artistRepository;
+	@Autowired
+	private PictureRepository pictureRepository;
 	
 	@PostConstruct
 	public void init(){
@@ -54,12 +59,32 @@ public class InitServiceDB {
 		userAdmin.setRoles(roles);
 		userRepository.save(userAdmin);
 		
+		
 		Artist artist = new Artist();
 		artist.setName("Michelangelo");
 		artist.setSurname("Buonarroti");
 		artist.setNationality("Italy");
 		artist.setDateOfBirth(new Date("1475/3/6"));
+		
+		
+		PictureArt picture = new PictureArt();
+		picture.setTitle("Creazione di Adamo");
+		picture.setCreationDate(1511);
+		picture.setTechnique("Affresco");
+		picture.setDimension("258x560");
+		
+		picture.setLink("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Michelangelo_-_Creation_of_Adam.jpg/1280px-Michelangelo_-_Creation_of_Adam.jpg");
+		
+				
+		List<PictureArt> pictures = new LinkedList<PictureArt>();
+		pictures.add(picture);
+		artist.setPictures(pictures);
+		
 		artistRepository.save(artist);
+		picture.setArtist(artist);
+		pictureRepository.save(picture);
+		
+		
 	}
 
 }

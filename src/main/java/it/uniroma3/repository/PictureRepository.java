@@ -11,4 +11,6 @@ public interface PictureRepository extends JpaRepository<PictureArt, Long>{
 
 	List<PictureArt> findByArtist(Artist artist);
 
+	PictureArt findByTitle(String title);
+
 }

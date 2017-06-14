@@ -34,4 +34,8 @@ public class PictureService {
 		pictureRep.delete(id);
 	}
 
+	public PictureArt findByTitle(String title) {
+		return pictureRep.findByTitle(title);
+	}
+
 }
