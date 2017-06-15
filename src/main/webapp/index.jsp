@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Galleria Web</title>
+<title>Gallery Web</title>
 </head>
 <body>
 	<div class="container">
 
 		<div align="center">
-			<h1>Welcome in this Gallery of Art</h1> <br> <br> <br>
+			<h1>Welcome in this Art Gallery</h1> <br> <br> <br>
 
 			<security:authorize access="isAuthenticated()">
 			
