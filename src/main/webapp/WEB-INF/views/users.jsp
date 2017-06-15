@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Lista Utenti</title>
+<title>List Users</title>
 
 <script type="text/javascript">
 			$(document).ready(function() {
@@ -31,9 +31,7 @@
 			<tbody>
 				<c:forEach items="${users}" var="user">
 					<tr>
-						<td>
-							<c:out	value="${user.name}" />
-						</td>
+						<td><c:out value="${user.name}" /></td>
 						<td><a href="<spring:url value="/users/remove/${user.id}" />"
 							class="btn btn-danger triggerRemove"> Remove </a></td>
 					</tr>
