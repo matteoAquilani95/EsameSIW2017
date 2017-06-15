@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="WEB-INF/layout/view-taglib.jsp"%>
+<%@ include file="../layout/view-taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,11 @@
 			<h1>Welcome in this Gallery of Art</h1> <br> <br> <br>
 
 			<security:authorize access="isAuthenticated()">
+				
+				<div class="alert alert-warning">${error}</div>
 			
+				<br>
+				
 				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchArtist"/>'>
 					<input class="form-control mr-sm-2" type="text" name="seatchArtist"
 						placeholder="Search">

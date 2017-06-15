@@ -1,6 +1,8 @@
 package it.uniroma3.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,17 +23,37 @@ public class SearchController {
 	private PictureService pictureService;
 	
 	@RequestMapping("/searchArtist")
-	public ModelAndView searchArtist(@RequestParam("seatchArtist") String nameArtist){
-		Artist artist = artistService.findOneWithNameWithPictures(nameArtist);
-		ModelAndView model = new ModelAndView("pictures","artist", artist);
-		model.addObject("picturesL", artist.getPictures());
-		return model;
+	public ModelAndView searchPictureForNameArtist(@RequestParam("seatchArtist") String nameArtist){
+		try{
+			Artist artist = artistService.findOneWithNameWithPictures(nameArtist);
+			ModelAndView model = new ModelAndView("pictures","artist", artist);
+			model.addObject("picturesL", artist.getPictures());
+			return model;
+		}catch(NullPointerException e){
+			return new ModelAndView("errorSearch","error", "No artist exists with this name");
+		}
+		
 	}
 	
 	@RequestMapping("/searchTitlePicture")
-	public ModelAndView searchTitle(@RequestParam("searchTitlePicture")String titlePicture){
-		PictureArt picture = pictureService.findByTitle(titlePicture);
-		return new ModelAndView("picture-detail","picture", picture);
+	public ModelAndView searchPictureForTitle(@RequestParam("searchTitlePicture")String titlePicture){
+		try{
+			PictureArt picture = pictureService.findByTitle(titlePicture);
+			return new ModelAndView("picture-detail","picture", picture);
+		}catch(NullPointerException e){
+			return new ModelAndView("errorSearch","error", "No picture exists with this title");
+		}
+		
+	}
+	
+	@RequestMapping("/searchDate")
+	public ModelAndView searchPictureForDate(@RequestParam("searchDate")String creationDate){
+			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
+			
+			if(pictures.isEmpty())
+				return new ModelAndView("errorSearch","error", "No picture exists with this date");
+			
+			return new ModelAndView("pictures","picturesL", pictures);		
 	}
 
 }

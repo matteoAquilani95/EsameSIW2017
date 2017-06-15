@@ -13,4 +13,6 @@ public interface PictureRepository extends JpaRepository<PictureArt, Long>{
 
 	PictureArt findByTitle(String title);
 
+	List<PictureArt> findByCreationDate(Integer creationDate);
+
 }

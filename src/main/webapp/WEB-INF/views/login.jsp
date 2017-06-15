@@ -13,7 +13,7 @@
 	margin: 0 auto;
 }
 
-.form-signin .form-signin-heading, .form-signin .checkbox {
+.form-signin .form-signin-heading, .form-signin {
 	margin-bottom: 10px;
 }
 
@@ -46,6 +46,11 @@
 <body>
 		<form class="form-signin" role="form" action="<spring:url value="/j_spring_security_check" />" method="POST">
 			<h2 class="form-signin-heading">Please sign in</h2>
+			
+			<c:if test="${param.error eq true}">
+				<div class="alert alert-danger"> Email e Password Wrong! </div>
+			</c:if>
+			
 			<input type="email" name="email" class="form-control" placeholder="Email" required autofocus> 
 			<input type="password" name="password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>

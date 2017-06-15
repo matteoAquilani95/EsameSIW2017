@@ -38,4 +38,9 @@ public class PictureService {
 		return pictureRep.findByTitle(title);
 	}
 
+	public List<PictureArt> findByCreationDate(String Date) {
+		Integer creationDate = Integer.parseInt(Date);
+		return pictureRep.findByCreationDate(creationDate);
+	}
+
 }

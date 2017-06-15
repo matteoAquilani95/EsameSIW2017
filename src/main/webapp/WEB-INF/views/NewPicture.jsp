@@ -12,7 +12,8 @@
 		<form:form commandName="picture" method="post" cssClass="form-horizontal" enctype="multipart/form-data">
 
 			<c:if test="${param.success eq true }">
-				<div class="alert alert-success">Insert Picture Success!</div>
+				<div class="alert alert-success">Insert Picture Success!
+					<a href='<spring:url value="/artists"/>'> Return to List artist</a> </div>
 			</c:if>
 
 			<div class="form-group">

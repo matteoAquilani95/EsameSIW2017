@@ -15,19 +15,27 @@
 			<thead>
 				<tr>
 					<th>Picture name</th>
-					<th>Operation</th>
+					
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+						<th>Operation</th>
+					</security:authorize>
+					
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${picturesL}" var="picture">
 					<tr>
+						
 						<td><a href="<spring:url value="/pictureList/detail/${picture.id}" />"> 
 							<c:out	value="${picture.title}" />
 						</a></td>
-						<td>
-						<a href="<spring:url value="/picture/remove/${picture.id}" />"
-							class="btn btn-danger"> Remove </a>
-						</td>
+						
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<td>
+							<a href="<spring:url value="/picture/remove/${picture.id}" />"
+								class="btn btn-danger"> Remove </a>
+							</td>
+						</security:authorize>
 					</tr>
 				</c:forEach>
 			</tbody>

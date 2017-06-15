@@ -12,7 +12,8 @@
 		<form:form commandName="artist" cssClass="form-horizontal">
 	
 		<c:if test="${param.success eq true }">
-			<div class="alert alert-success"> Insert Artist Success! </div>
+			<div class="alert alert-success"> Insert Artist Success! 
+				<a href='<spring:url value="/artists"/>'> Return to List artist</a> </div>
 		</c:if>
 	
 		<div class="form-group">

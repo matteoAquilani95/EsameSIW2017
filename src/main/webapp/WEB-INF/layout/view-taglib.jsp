@@ -46,7 +46,6 @@
               	
               	<security:authorize access="isAuthenticated()">
               	<li><a href="<spring:url value="/artists" />">List Artists</a></li>
-              	<li><a href="<spring:url value="/logout" />">Logout</a></li>
               	</security:authorize>
               
             </ul>
@@ -57,6 +56,11 @@
       				</li>
      			 	<li><a href="<spring:url value="/login" />">
      			 		<span class="glyphicon glyphicon-log-in"></span> Login</a>
+     			 	</li>
+     			</security:authorize>
+     			<security:authorize access="isAuthenticated()">
+     				<li><a href="<spring:url value="/logout" />">
+     			 		<span class="glyphicon glyphicon-log-out"></span> Logout</a>
      			 	</li>
      			</security:authorize>
     		</ul>

@@ -14,10 +14,16 @@
 		<intercept-url pattern="/artist/**" access="hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/artists**" access="hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/artists/**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/artists/remove/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/edit/**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/picture/remove/**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/account**" access="hasRole('ROLE_USER')"/>
+		
 		<form-login login-page="/login"
+				authentication-failure-url="/login?error=true"
 				username-parameter="email"
 				password-parameter="password"/>
+		
 		<logout logout-url="/logout"/>
 	</http>
 	
