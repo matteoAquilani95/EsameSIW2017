@@ -24,36 +24,53 @@ public class SearchController {
 	
 	@RequestMapping("/searchArtist")
 	public ModelAndView searchPictureForNameArtist(@RequestParam("seatchArtist") String nameArtist){
-		try{
-			Artist artist = artistService.findOneWithNameWithPictures(nameArtist);
-			ModelAndView model = new ModelAndView("pictures","artist", artist);
-			model.addObject("picturesL", artist.getPictures());
-			return model;
-		}catch(NullPointerException e){
-			return new ModelAndView("SearchPage","error", "No artist exists with this name");
+		
+		if(nameArtist.equals("")){
+			return new ModelAndView("SearchPage","error", "You haven't entered anything");
 		}
+		else{
+			try{
+				Artist artist = artistService.findOneWithNameWithPictures(nameArtist);
+				ModelAndView model = new ModelAndView("pictures","artist", artist);
+				model.addObject("picturesL", artist.getPictures());
+				return model;
+			}catch(NullPointerException e){
+				return new ModelAndView("SearchPage","error", "No artist exists with this name");
+			}
+		}
+		
 		
 	}
 	
 	@RequestMapping("/searchTitlePicture")
 	public ModelAndView searchPictureForTitle(@RequestParam("searchTitlePicture")String titlePicture){
-		try{
-			PictureArt picture = pictureService.findByTitle(titlePicture);
-			return new ModelAndView("picture-detail","picture", picture);
-		}catch(NullPointerException e){
-			return new ModelAndView("SearchPage","error", "No picture exists with this title");
+		if(titlePicture.equals("")){
+			return new ModelAndView("SearchPage","error", "You haven't entered anything");
+		}
+		else{
+			try{
+				PictureArt picture = pictureService.findByTitle(titlePicture);
+				return new ModelAndView("picture-detail","picture", picture);
+			}catch(NullPointerException e){
+				return new ModelAndView("SearchPage","error", "No picture exists with this title");
+			}
 		}
 		
 	}
 	
 	@RequestMapping("/searchDate")
 	public ModelAndView searchPictureForDate(@RequestParam("searchDate")String creationDate){
-			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
 			
+		if(creationDate.equals("")){
+			return new ModelAndView("SearchPage","error", "You haven't entered anything");
+		}
+		else{
+			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
 			if(pictures.isEmpty())
 				return new ModelAndView("SearchPage","error", "No picture exists with this date");
 			
-			return new ModelAndView("pictures","picturesL", pictures);		
+			return new ModelAndView("pictures","picturesL", pictures);
+		}
 	}
 
 }

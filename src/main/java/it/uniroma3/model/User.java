@@ -87,6 +87,18 @@ public class User {
 		this.enabled = enabled;
 	}
 	
+	@Override
+	public int hashCode() {
+		return this.name.hashCode()+ this.email.hashCode() + this.password.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
+	
+	
+	
 	
 	
 		
