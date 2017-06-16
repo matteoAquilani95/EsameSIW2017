@@ -30,7 +30,7 @@ public class SearchController {
 			model.addObject("picturesL", artist.getPictures());
 			return model;
 		}catch(NullPointerException e){
-			return new ModelAndView("errorSearch","error", "No artist exists with this name");
+			return new ModelAndView("SearchPage","error", "No artist exists with this name");
 		}
 		
 	}
@@ -41,7 +41,7 @@ public class SearchController {
 			PictureArt picture = pictureService.findByTitle(titlePicture);
 			return new ModelAndView("picture-detail","picture", picture);
 		}catch(NullPointerException e){
-			return new ModelAndView("errorSearch","error", "No picture exists with this title");
+			return new ModelAndView("SearchPage","error", "No picture exists with this title");
 		}
 		
 	}
@@ -51,7 +51,7 @@ public class SearchController {
 			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
 			
 			if(pictures.isEmpty())
-				return new ModelAndView("errorSearch","error", "No picture exists with this date");
+				return new ModelAndView("SearchPage","error", "No picture exists with this date");
 			
 			return new ModelAndView("pictures","picturesL", pictures);		
 	}
