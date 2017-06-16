@@ -22,11 +22,19 @@ public class SearchController {
 	@Autowired
 	private PictureService pictureService;
 	
+	
+	@RequestMapping("/search")
+	public String searchPage(){
+		return "SearchPage";
+	}
+	
 	@RequestMapping("/searchArtist")
 	public ModelAndView searchPictureForNameArtist(@RequestParam("seatchArtist") String nameArtist){
 		
 		if(nameArtist.equals("")){
-			return new ModelAndView("SearchPage","error", "You haven't entered anything");
+			ModelAndView model = new ModelAndView("SearchPage","errorMsg", "You haven't entered anything");
+			model.addObject("error", true);
+			return model;
 		}
 		else{
 			try{
@@ -35,7 +43,9 @@ public class SearchController {
 				model.addObject("picturesL", artist.getPictures());
 				return model;
 			}catch(NullPointerException e){
-				return new ModelAndView("SearchPage","error", "No artist exists with this name");
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No artist exists with this name");
+				model.addObject("error", true);
+				return model;
 			}
 		}
 		
@@ -45,14 +55,19 @@ public class SearchController {
 	@RequestMapping("/searchTitlePicture")
 	public ModelAndView searchPictureForTitle(@RequestParam("searchTitlePicture")String titlePicture){
 		if(titlePicture.equals("")){
-			return new ModelAndView("SearchPage","error", "You haven't entered anything");
+			ModelAndView model = new ModelAndView("SearchPage","errorMsg", "You haven't entered anything");
+			model.addObject("error", true);
+			return model;
 		}
 		else{
 			try{
 				PictureArt picture = pictureService.findByTitle(titlePicture);
 				return new ModelAndView("picture-detail","picture", picture);
+				
 			}catch(NullPointerException e){
-				return new ModelAndView("SearchPage","error", "No picture exists with this title");
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No picture exists with this title");
+				model.addObject("error", true);
+				return model;
 			}
 		}
 		
@@ -62,14 +77,19 @@ public class SearchController {
 	public ModelAndView searchPictureForDate(@RequestParam("searchDate")String creationDate){
 			
 		if(creationDate.equals("")){
-			return new ModelAndView("SearchPage","error", "You haven't entered anything");
+			ModelAndView model = new ModelAndView("SearchPage","errorMsg", "You haven't entered anything");
+			model.addObject("error", true);
+			return model;
 		}
 		else{
 			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
-			if(pictures.isEmpty())
-				return new ModelAndView("SearchPage","error", "No picture exists with this date");
-			
-			return new ModelAndView("pictures","picturesL", pictures);
+			if(pictures.isEmpty()){
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No picture exists with this date");
+				model.addObject("error", true);
+				return model;
+			}
+			else
+				return new ModelAndView("pictures","picturesL", pictures);
 		}
 	}
 

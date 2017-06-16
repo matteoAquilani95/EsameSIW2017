@@ -14,28 +14,9 @@
 			<h1>Welcome in this Art Gallery</h1> <br> <br> <br>
 
 			<security:authorize access="isAuthenticated()">
-			
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchArtist"/>'>
-					<input class="form-control mr-sm-2" type="text" name="seatchArtist"
-						placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for name artist</button>
-				</form>
-
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchTitlePicture"/>'>
-					<input class="form-control mr-sm-2" type="text"
-						name="searchTitlePicture" placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for title of picture</button>
-				</form>
-
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchDate"/>'>
-					<input class="form-control mr-sm-2" type="text" name="searchDate"
-						placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for creation date</button>
-				</form>
+				<a href="<spring:url value="/search" />" class="btn btn-primary btn-lg"> Personalized Search!! </a>
 			</security:authorize>
+			
 		</div>
 	</div>
 </body>

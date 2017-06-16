@@ -15,8 +15,9 @@
 
 			<security:authorize access="isAuthenticated()">
 				
-				<div class="alert alert-warning">${error}</div>
-			
+				<c:if test="${error eq true }">
+					<div class="alert alert-warning">${errorMsg}</div>
+				</c:if>
 				<br>
 				
 				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchArtist"/>'>
