@@ -4,23 +4,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 
 <html>
 <head>
-<link rel="stylesheet"
+<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="<c:url value="/resources/js/jquery.min.js/>"/>"></script>
+<script src="<c:url value="/resources/js/skel.min.js"/>"></script>
+<script src="<c:url value="/resources/js/util.js"/>"></script>
+<script src="<c:url value="/resources/js/main.js"/>"></script>
+<!-- <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> -->
+
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 </head>
 <body>
-
-<div class="container">
+	
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1>
+			<a href="<spring:url value="/" />">MyGallery</a>
+		</h1>
+		<security:authorize access="hasRole('ROLE_ADMIN')">
+               <a href="<spring:url value="/users" />">Users</a>
+               <a href="<spring:url value="/account" />">My account</a>
+        </security:authorize>
+              	
+       	<security:authorize access="isAuthenticated()">
+             <a href="<spring:url value="/logout" />"> Logout </a>
+        </security:authorize> 
+	</header>
+	<%-- <div class="container">
 
   <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -37,7 +60,7 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
              
-                <%-- <li><a href='<spring:url value="/" />'>Home</a></li> --%>
+                <li><a href='<spring:url value="/" />'>Home</a></li>
                 
                 <security:authorize access="hasRole('ROLE_ADMIN')">
                		<li><a href="<spring:url value="/users" />">Users</a></li>
@@ -67,9 +90,7 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
 	</div>
-</div>
-
-
+</div> --%>
 
 </body>
 </html>

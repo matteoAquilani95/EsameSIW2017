@@ -43,7 +43,9 @@
 	border-top-right-radius: 0;
 }
 </style>
-<body>
+<body class="landing">
+	
+	<section id="banner">
 		<form class="form-signin" role="form" action="<spring:url value="/j_spring_security_check" />" method="POST">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			
@@ -55,6 +57,33 @@
 			<input type="password" name="password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		</form>
-
+	</section>
+	
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-facebook"> <span
+						class="label">Facebook</span>
+				</a></li>
+				<li><a href="#" class="icon fa-twitter"> <span
+						class="label">Twitter</span>
+				</a></li>
+				<li><a href="#" class="icon fa-instagram"> <span
+						class="label">Instagram</span>
+				</a></li>
+				<li><a href="#" class="icon fa-linkedin"> <span
+						class="label">LinkedIn</span>
+				</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Images: <a href="http://unsplash.com">Unsplash</a>.
+				</li>
+				<li>Design: <a href="http://templated.co">TEMPLATED</a>.
+				</li>
+			</ul>
+		</div>
+	</footer>
 </body>
 </html>
