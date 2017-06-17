@@ -44,6 +44,18 @@
 					</ul>
 				</div>
 			</article>
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+			<article class="feature left">
+				<span class="image"><img
+					src="<c:url value="/resources/images/pic05.jpg"/>" alt="" /></span>
+				<div class="content">
+					<h2>You can insert new artist</h2>
+					<ul class="actions">
+						<li><a href="<spring:url value="/artist" />" class="button alt">More</a></li>
+					</ul>
+				</div>
+			</article>
+			</security:authorize>
 		</div>
 	</section>
 	</security:authorize>

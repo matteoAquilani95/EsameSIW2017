@@ -47,6 +47,7 @@ public class InitServiceDB {
 		roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
 		
+		
 		User userAdmin = new User();
 		userAdmin.setName("admin");
 		userAdmin.setEmail("admin@gmail.com");
@@ -58,6 +59,14 @@ public class InitServiceDB {
 		roles.add(roleUser);
 		userAdmin.setRoles(roles);
 		userRepository.save(userAdmin);
+		
+		User userAdmin2 = new User();
+		userAdmin2.setName("admin2");
+		userAdmin2.setEmail("admin2@gmail.com");
+		userAdmin2.setPassword(encoder.encode("admin2"));
+		userAdmin2.setEnabled(true);
+		userAdmin2.setRoles(roles);
+		userRepository.save(userAdmin2);
 		
 		
 		Artist artist = new Artist();

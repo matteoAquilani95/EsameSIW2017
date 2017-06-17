@@ -16,10 +16,12 @@
 			cssClass="form-horizontal registrationForm">
 
 			<c:if test="${param.success eq true }">
-				<div class="alert alert-success">
-					Registration completed! <a href='<spring:url value="/login"/>'>
+				<blockquote>
+					<p>Registration completed! </p>
+					<a href='<spring:url value="/login"/>' class="button alt small">
 						Login</a>
-				</div>
+				</blockquote>
+				<hr/>
 			</c:if>
 
 			<header class="major narrow">

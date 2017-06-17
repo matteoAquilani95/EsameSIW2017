@@ -30,7 +30,7 @@
 <body>
 	
 	<!-- Header -->
-	<header id="header" class="alt">
+	<header id="header" class="skel-layers-fixed">
 		<h1>
 			<a href="<spring:url value="/" />">MyGallery</a>
 		</h1>
