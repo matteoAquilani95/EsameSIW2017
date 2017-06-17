@@ -26,7 +26,7 @@
 		<div class="inner">
 			<article class="feature left">
 				<span class="image"><img
-					src="<c:url value="/resources/images/pic03.jpg"/>" alt="" /></span>
+					src="<c:url value="/resources/images/galleria-degli-uffizi.jpg"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can access into the artists list</h2>
 					<ul class="actions">
@@ -36,7 +36,7 @@
 			</article>
 			
 			<article class="feature right">
-				<span class="image"><img src="<c:url value="/resources/images/pic02.jpg"/>" alt="" /></span>
+				<span class="image"><img src="<c:url value="/resources/images/sala michelangelo35-01-600x398.jpg"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can do a custom search</h2>
 					<ul class="actions">
@@ -47,7 +47,7 @@
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 			<article class="feature left">
 				<span class="image"><img
-					src="<c:url value="/resources/images/pic05.jpg"/>" alt="" /></span>
+					src="<c:url value="/resources/images/de-chirico-ettore-e-andromaca.jpg"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can insert new artist</h2>
 					<ul class="actions">
