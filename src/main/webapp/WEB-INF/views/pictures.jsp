@@ -33,7 +33,7 @@
 						<security:authorize access="hasRole('ROLE_ADMIN')">
 							<td>
 							<a href="<spring:url value="/picture/remove/${picture.id}" />"
-								class="btn btn-danger"> Remove </a>
+								class="button"> Remove </a>
 							</td>
 						</security:authorize>
 					</tr>

@@ -13,10 +13,13 @@
 	<section id="banner">
 		<h2>Welcome in this Art Gallery</h2>
 		<security:authorize access="! isAuthenticated()">
-		<ul class="actions">
-			<li><a href="<spring:url value="/register" />" class="button big special"> Sign up </a></li>
-			<li><a href="<spring:url value="/login" />"class="button big special" >Login</a></li>
-		</ul>
+			<ul class="actions">
+				<li><a href="<spring:url value="/register" />" class="button big special"> Sign up </a></li>
+				<li><a href="<spring:url value="/login" />"class="button big special" >Login</a></li>
+			</ul>
+			<hr />
+			<img src="<c:url value="/resources/images/Black_Pizza_Resisting_The_Present_MAM-Paris(3200).jpg"/>" 
+						width="60%" alt="" />
 		</security:authorize>
 	</section>
 	

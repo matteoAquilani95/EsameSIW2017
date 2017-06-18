@@ -22,11 +22,11 @@
 			<div class="panel-body">
 				<security:authorize access="hasRole('ROLE_ADMIN')">
 					<a href="<spring:url value="/picture/${artist.id}" />" 
-				     				class="btn btn-primary btn-lg"> Add Picture </a>
+				     				class="button"> Add Picture </a>
 				</security:authorize>
 				
 				<a href="<spring:url value="/pictureList/${artist.id}" />" 
-				     				class="btn btn-success btn-lg"> List Picture </a>
+				     				class="button"> List Picture </a>
 			</div>
 		</div>
 
@@ -35,9 +35,9 @@
 				<div class="panel-heading">Artist Section</div>
 				<div class="panel-body">
 					<a href="<spring:url value="/edit/${artist.id}" />"
-						class="btn btn-warning btn-lg"> Edit </a> 
+						class="button"> Edit </a> 
 					<a href="<spring:url value="/artists/remove/${artist.id}" />"
-						class="btn btn-danger btn-lg"> Remove </a>
+						class="button"> Remove </a>
 				</div>
 			</div>
 		</security:authorize>
