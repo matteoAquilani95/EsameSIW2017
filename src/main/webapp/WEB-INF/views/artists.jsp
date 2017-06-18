@@ -12,7 +12,7 @@
 	 	<div class="container">
 		<h2> Artist List: </h2>
 		
-		<table class="table table-bordered table-hover table-striped">
+		<table class="table-wrapper">
 			<thead>
 				<tr>
 					<th>Artist name</th>

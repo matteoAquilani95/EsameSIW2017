@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.model.Artist;
-import it.uniroma3.repository.ArtistRepository;
 import it.uniroma3.service.ArtistService;
 
 @Controller

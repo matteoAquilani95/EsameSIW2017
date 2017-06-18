@@ -55,5 +55,10 @@ public class ArtistService {
 		artist.setPictures(pictures);
 		return artist;
 	}
+	
+	public List<Artist> findArtistWithName(String name){
+		List<Artist> artists = artistRep.findAllByName(name);
+		return artists;
+	}
 
 }

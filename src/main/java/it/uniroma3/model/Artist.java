@@ -13,6 +13,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 public class Artist {
 	

@@ -38,9 +38,8 @@ public class SearchController {
 		}
 		else{
 			try{
-				Artist artist = artistService.findOneWithNameWithPictures(nameArtist);
-				ModelAndView model = new ModelAndView("pictures","artist", artist);
-				model.addObject("picturesL", artist.getPictures());
+				List<Artist> artists = artistService.findArtistWithName(nameArtist);
+				ModelAndView model = new ModelAndView("artists","artists", artists);
 				return model;
 			}catch(NullPointerException e){
 				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No artist exists with this name");
