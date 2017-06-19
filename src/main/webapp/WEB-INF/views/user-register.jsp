@@ -107,7 +107,7 @@
 			</ul>
 			<ul class="copyright">
 				<li>&copy; Untitled.</li>
-				<li>Images: <a href="http://unsplash.com">Unsplash</a>.
+				<li>Images: <a href="http://google.it">Google & Wikipedia</a>.
 				</li>
 				<li>Design: <a href="http://templated.co">TEMPLATED</a>.
 				</li>

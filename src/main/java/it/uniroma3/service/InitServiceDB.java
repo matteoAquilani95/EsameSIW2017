@@ -54,35 +54,38 @@ public class InitServiceDB {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		userAdmin.setPassword(encoder.encode("admin"));
 		userAdmin.setEnabled(true);
-		List<Role> roles = new ArrayList<Role>();
+		List<Role> roles = new LinkedList<Role>();
 		roles.add(roleAdmin);
 		roles.add(roleUser);
 		userAdmin.setRoles(roles);
 		userRepository.save(userAdmin);
 		
 		User userAdmin2 = new User();
-		userAdmin2.setName("admin2");
-		userAdmin2.setEmail("admin2@gmail.com");
-		userAdmin2.setPassword(encoder.encode("admin2"));
+		userAdmin2.setName("utente");
+		userAdmin2.setEmail("utente@gmail.com");
+		userAdmin2.setPassword(encoder.encode("utente"));
 		userAdmin2.setEnabled(true);
-		userAdmin2.setRoles(roles);
+		List<Role> roles2 = new LinkedList<Role>();
+		roles2.add(roleUser);
+		userAdmin2.setRoles(roles2);
 		userRepository.save(userAdmin2);
 		
 		
 		Artist artist = new Artist();
 		artist.setName("Michelangelo");
-		artist.setSurname("Buonarroti");
+		artist.setSurname("Merisi (Caravaggio)");
 		artist.setNationality("Italy");
-		artist.setDateOfBirth(new Date("1475/3/6"));
+		artist.setDateOfBirth(new Date("1571/9/29"));
+		artist.setDeathDate(new Date("1610/7/18"));
 		
 		
 		PictureArt picture = new PictureArt();
-		picture.setTitle("Creazione di Adamo");
-		picture.setCreationDate(1511);
-		picture.setTechnique("Affresco");
-		picture.setDimension("258x560");
+		picture.setTitle("Narciso");
+		picture.setCreationDate(1599);
+		picture.setTechnique("Olio su tela");
+		picture.setDimension("112x92");
 		
-		picture.setLink("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Michelangelo_-_Creation_of_Adam.jpg/1280px-Michelangelo_-_Creation_of_Adam.jpg");
+		picture.setLink("https://upload.wikimedia.org/wikipedia/it/thumb/d/de/Michelangelo_Caravaggio_065.jpg/250px-Michelangelo_Caravaggio_065.jpg");
 		
 				
 		List<PictureArt> pictures = new LinkedList<PictureArt>();

@@ -6,18 +6,24 @@
 <head>
 <title>List of Picture of ${artist.name}</title>
 </head>
-<body>
+<body class="landing">
 
-	<div class="container">
-		<h2> Picture List: </h2>
+		<section id="banner">
+			<h2>Picture List Of ${artist.name}</h2>
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+				<a href="<spring:url value="/picture/${artist.id}" />" class="button special"> Add Picture </a>
+			</security:authorize>
+		</section>
 		
-		<table class="table table-bordered table-hover table-striped">
+		<section id="one" class="wrapper style1">
+			<div class="container">		
+			<table class="table-wrapper">
 			<thead>
 				<tr>
 					<th>Picture name</th>
 					
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<th>Operation</th>
+						<th><div align="right">Operation</div></th>
 					</security:authorize>
 					
 				</tr>
@@ -31,7 +37,7 @@
 						</a></td>
 						
 						<security:authorize access="hasRole('ROLE_ADMIN')">
-							<td>
+							<td align="right">
 							<a href="<spring:url value="/picture/remove/${picture.id}" />"
 								class="button"> Remove </a>
 							</td>
@@ -40,7 +46,34 @@
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>
+		</div>
+		</section>
+		
+		<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-facebook"> <span
+						class="label">Facebook</span>
+				</a></li>
+				<li><a href="#" class="icon fa-twitter"> <span
+						class="label">Twitter</span>
+				</a></li>
+				<li><a href="#" class="icon fa-instagram"> <span
+						class="label">Instagram</span>
+				</a></li>
+				<li><a href="#" class="icon fa-linkedin"> <span
+						class="label">LinkedIn</span>
+				</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Images: <a href="http://google.it">Google & Wikipedia</a>.
+				</li>
+				<li>Design: <a href="http://templated.co">TEMPLATED</a>.
+				</li>
+			</ul>
+		</div>
+	</footer>
 
 </body>
 </html>

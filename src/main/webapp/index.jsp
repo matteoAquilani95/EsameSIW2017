@@ -29,7 +29,7 @@
 		<div class="inner">
 			<article class="feature left">
 				<span class="image"><img
-					src="<c:url value="/resources/images/galleria-degli-uffizi.jpg"/>" alt="" /></span>
+					src="<c:url value="/resources/images/artistList.jpg"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can access into the artists list</h2>
 					<ul class="actions">
@@ -39,7 +39,7 @@
 			</article>
 			
 			<article class="feature right">
-				<span class="image"><img src="<c:url value="/resources/images/sala michelangelo35-01-600x398.jpg"/>" alt="" /></span>
+				<span class="image"><img src="<c:url value="/resources/images/search.jpg"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can do a custom search</h2>
 					<ul class="actions">
@@ -149,7 +149,7 @@
 			</ul>
 			<ul class="copyright">
 				<li>&copy; Untitled.</li>
-				<li>Images: <a href="http://unsplash.com">Unsplash</a>.
+				<li>Images: <a href="http://google.it">Google & Wikipedia</a>.
 				</li>
 				<li>Design: <a href="http://templated.co">TEMPLATED</a>.
 				</li>
