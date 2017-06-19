@@ -77,6 +77,7 @@ public class InitServiceDB {
 		artist.setNationality("Italy");
 		artist.setDateOfBirth(new Date("1571/9/29"));
 		artist.setDeathDate(new Date("1610/7/18"));
+		artist.setLink("https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bild-Ottavio_Leoni%2C_Caravaggio.jpg/220px-Bild-Ottavio_Leoni%2C_Caravaggio.jpg");
 		
 		
 		PictureArt picture = new PictureArt();

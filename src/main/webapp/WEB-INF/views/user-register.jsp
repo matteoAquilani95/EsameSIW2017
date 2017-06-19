@@ -17,7 +17,10 @@
 
 			<c:if test="${param.success eq true }">
 				<blockquote>
-					<p>Registration completed! </p>
+					<p>
+						<img src="<c:url value="/resources/images/Check.png"/>" width="2%" />
+						Registration completed! 
+					</p>
 					<a href='<spring:url value="/login"/>' class="button alt small">
 						Login</a>
 				</blockquote>
@@ -25,7 +28,7 @@
 			</c:if>
 
 			<header class="major narrow">
-				<h1>Registration:</h1>
+				<h3>Registration:</h3>
 			</header>
 
 			<div class="container 75%">

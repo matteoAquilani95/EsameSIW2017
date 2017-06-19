@@ -36,12 +36,12 @@ public class ArtistController {
 	}
 	
 	@RequestMapping(value="/artist", method = RequestMethod.POST)
-	public String newArtist(@Valid @ModelAttribute("artist") Artist artist, BindingResult result){
+	public ModelAndView newArtist(@Valid @ModelAttribute("artist") Artist artist, BindingResult result){
 		if(result.hasErrors())
-			return "newArtist";
+			return new ModelAndView("newArtist","errorDate", "it's a wrong date");
 		else{
 			artistService.save(artist);
-			return "redirect:/artist?success=true";
+			return new ModelAndView("redirect:/artist?success=true");
 		}
 	}
 	

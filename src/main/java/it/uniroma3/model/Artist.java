@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
@@ -22,13 +23,13 @@ public class Artist {
 	@GeneratedValue
 	private Long id;
 	
-	@Size(min=1,message="this camp can't be null")
+	@Size(min=1,message="this camp cannot be null")
 	private String name;
 	
-	@Size(min=1,message="this camp can't be null")
+	@Size(min=1,message="this camp cannot be null")
 	private String surname;
 	
-	@Size(min=1,message="this camp can't be null")
+	@Size(min=1,message="this camp cannot be null")
 	private String nationality;
 	
 	@Temporal(TemporalType.DATE)
@@ -37,6 +38,9 @@ public class Artist {
 	
 	@Temporal(TemporalType.DATE)
 	private Date deathDate;
+	
+	@URL(message="this isn't a URL")
+	private String link;
 	
 	@OneToMany(mappedBy="artist", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
 	private List<PictureArt> pictures;
@@ -96,6 +100,16 @@ public class Artist {
 	public void setPictures(List<PictureArt> pictures) {
 		this.pictures = pictures;
 	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+	
+	
 	
 	
 

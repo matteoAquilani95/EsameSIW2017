@@ -15,7 +15,7 @@
 	<section id="one" class="wrapper style1">
 		<div class="container">
 			<article class="feature left">
-				<span class="image"><img src="<c:url value="#" />" alt="${artist.name}"/></span>
+				<span class="image"><img src="<c:url value="${artist.link}" />" alt="${artist.name}"/></span>
 				<div class="content">
 					<p><strong>Nationality:</strong> ${artist.nationality}</p>
 					<p><strong>Date of birth :</strong> ${artist.dateOfBirth}</p>

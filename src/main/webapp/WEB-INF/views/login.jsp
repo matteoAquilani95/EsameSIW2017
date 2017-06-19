@@ -50,7 +50,10 @@
 			<h2 class="form-signin-heading">Please sign in</h2>
 			
 			<c:if test="${param.error eq true}">
-				<div class="alert alert-danger"> Email e Password Wrong! </div>
+			<blockquote>
+				<p><img src="<c:url value="/resources/images/Wrong.png"/>" width="6%" />
+				 Email e Password Wrong! </p>
+			</blockquote>
 			</c:if>
 			
 			<input type="email" name="email" class="form-control" placeholder="Email" required autofocus> 
