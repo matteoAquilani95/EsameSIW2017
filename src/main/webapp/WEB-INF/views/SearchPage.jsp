@@ -75,6 +75,7 @@
 							</div>
 							<input class="form-control" type="text" name="searchDate"
 								placeholder="Search">
+								${errorNumber}
 							<div align="right">
 								<br>
 								<button class="button special small" type="submit">Search

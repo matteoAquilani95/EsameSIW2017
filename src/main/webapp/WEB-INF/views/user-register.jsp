@@ -40,7 +40,7 @@
 					<br>
 					<div class="6u 12u$(xsmall)">
 						<form:input path="email" cssClass="form-control" placeholder="Email"/>
-						<form:errors path="email" />
+						<form:errors path="email" /> ${errorRegister}
 					</div>
 					<br>
 					<div class="6u 12u$(xsmall)" align="center">

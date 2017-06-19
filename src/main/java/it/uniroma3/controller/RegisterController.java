@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.model.User;
 import it.uniroma3.service.UserService;
@@ -30,13 +31,26 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String newRegister(@Valid @ModelAttribute("user") User user, BindingResult result){
+	public ModelAndView newRegister(@Valid @ModelAttribute("user") User user, BindingResult result){
 		if(result.hasErrors())
-			return "user-register";
+			return new ModelAndView("user-register");
 		else{
-			userService.save(user);
-			return "redirect:/register?success=true";
+			if(!exists(user.getEmail())){
+				userService.save(user);
+				return new ModelAndView("redirect:/register?success=true");
+			}
+			else
+				return new ModelAndView("user-register", "errorRegister", "alredy exists an account with this email");
 		}
+	}
+	
+	private boolean exists(String email){
+		try{
+			userService.findOneWithEmail(email);
+			return true;
+		}catch(NullPointerException e){
+			return false;
+		}		
 	}
 
 }

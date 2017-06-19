@@ -84,15 +84,31 @@ public class SearchController {
 			return model;
 		}
 		else{
-			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
-			if(pictures.isEmpty()){
-				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
+			if(isNotNumber(creationDate)){
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "there is not a number");
 				model.addObject("error", true);
 				return model;
 			}
-			else
-				return new ModelAndView("pictures","picturesL", pictures);
+			else{
+				List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
+				if(pictures.isEmpty()){
+					ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
+					model.addObject("error", true);
+					return model;
+				}
+				else
+					return new ModelAndView("pictures","picturesL", pictures);
+			}
 		}
+	}
+	
+	private boolean isNotNumber(String date){
+		boolean NotNumber = false;
+		for (int i=0 ; i<date.length(); i++){
+			if(date.charAt(i)>='a' && date.charAt(i)<='z' || date.charAt(i)>='A' && date.charAt(i)<='Z')
+				 NotNumber = true;
+		}
+		return NotNumber;
 	}
 
 }
