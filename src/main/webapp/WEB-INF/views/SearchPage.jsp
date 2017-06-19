@@ -7,41 +7,64 @@
 <head>
 <title>Web Gallery</title>
 </head>
-<body>
-	<div class="container">
+<body class="landing">
+	<section id="banner">
 
 		<div align="center">
-			<h1>Welcome in this Art Gallery</h1> <br> <br> <br>
-
+			<h2>Do your custom search</h2> <br> <br>
+			
 			<security:authorize access="isAuthenticated()">
-				
+
 				<c:if test="${error eq true }">
-					<div class="alert alert-warning">${errorMsg}</div>
+					<div class="alert alert-danger">${errorMsg}</div>
 				</c:if>
 				<br>
-				
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchArtist"/>'>
-					<input class="form-control mr-sm-2" type="text" name="seatchArtist"
-						placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for name artist</button>
-				</form>
 
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchTitlePicture"/>'>
-					<input class="form-control mr-sm-2" type="text"
-						name="searchTitlePicture" placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for title of picture</button>
-				</form>
+				<div class="container 75%">
+					<div align="center">
+						<form class="form-inline"
+							action='<spring:url value="/searchArtist"/>'>
+							
+							<div align="left"> <h1><strong>Search by name artist :</strong></h1></div>
+							
+							<input class="form-control" type="text" name="seatchArtist"
+								placeholder="Search">
+							<div align="right">
+								<br>
+								<button class="button special small" type="submit">Search</button>
+							</div>
+						</form>
 
-				<form class="form-inline my-2 my-lg-0" action='<spring:url value="/searchDate"/>'>
-					<input class="form-control mr-sm-2" type="text" name="searchDate"
-						placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-						for creation date</button>
-				</form>
+
+						<form class="form-inline"
+							action='<spring:url value="/searchTitlePicture"/>'>
+							
+							<div align="left"> <h1><strong>Search by title of picture :</strong></h1></div>
+							
+							<input class="form-control" type="text" name="searchTitlePicture"
+								placeholder="Search">
+							<div align="right">
+								<br>
+								<button class="button special small" type="submit">Search </button>
+							</div>
+						</form>
+
+
+
+						<form class="form-inline"
+							action='<spring:url value="/searchDate"/>'>
+							<div align="left"> <h1><strong>Search by creation date :</strong></h1></div>
+							<input class="form-control" type="text" name="searchDate"
+								placeholder="Search">
+							<div align="right">
+								<br>
+								<button class="button special small" type="submit">Search </button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</security:authorize>
 		</div>
-	</div>
+	</section>
 </body>
 </html>

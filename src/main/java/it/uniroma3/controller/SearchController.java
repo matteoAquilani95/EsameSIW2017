@@ -37,15 +37,17 @@ public class SearchController {
 			return model;
 		}
 		else{
-			try{
 				List<Artist> artists = artistService.findArtistWithName(nameArtist);
-				ModelAndView model = new ModelAndView("artists","artists", artists);
-				return model;
-			}catch(NullPointerException e){
-				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No artist exists with this name");
-				model.addObject("error", true);
-				return model;
-			}
+				if(artists.isEmpty()){
+					ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Artist not found ");
+					model.addObject("error", true);
+					return model;
+				}
+				else{
+					ModelAndView model = new ModelAndView("artists","artists", artists);
+					return model;
+				}
+				
 		}
 		
 		
@@ -64,7 +66,7 @@ public class SearchController {
 				return new ModelAndView("picture-detail","picture", picture);
 				
 			}catch(NullPointerException e){
-				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No picture exists with this title");
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
 				model.addObject("error", true);
 				return model;
 			}
@@ -83,7 +85,7 @@ public class SearchController {
 		else{
 			List<PictureArt> pictures = pictureService.findByCreationDate(creationDate);
 			if(pictures.isEmpty()){
-				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "No picture exists with this date");
+				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
 				model.addObject("error", true);
 				return model;
 			}

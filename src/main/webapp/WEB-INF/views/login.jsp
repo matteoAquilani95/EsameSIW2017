@@ -55,7 +55,7 @@
 			
 			<input type="email" name="email" class="form-control" placeholder="Email" required autofocus> 
 			<input type="password" name="password" class="form-control" placeholder="Password" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<button class="button special" type="submit">Sign in</button>
 		</form>
 	</section>
 	
