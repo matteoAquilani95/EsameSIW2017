@@ -37,12 +37,12 @@ public class SearchController {
 			return model;
 		}
 		else{
-				String resto = nameArtist.substring(1, nameArtist.length());
-				char primaLettera = nameArtist.toUpperCase().charAt(0);
+				String rest = nameArtist.substring(1, nameArtist.length());
+				char firstWord = nameArtist.toUpperCase().charAt(0);
 				
-				String nomeArtistaGiusto = primaLettera + resto;
+				String nameArtistComplete = firstWord + rest;
 				
-				List<Artist> artists = artistService.findArtistWithName(nomeArtistaGiusto);
+				List<Artist> artists = artistService.findArtistWithName(nameArtistComplete);
 				if(artists.isEmpty()){
 					ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Artist not found ");
 					model.addObject("error", true);
@@ -66,7 +66,11 @@ public class SearchController {
 			return model;
 		}
 		else{
-				PictureArt picture = pictureService.findByTitle(titlePicture);
+				String rest = titlePicture.substring(1, titlePicture.length());
+				char firstWord = titlePicture.toUpperCase().charAt(0);
+			
+				String titlePictureComplete = firstWord + rest;
+				PictureArt picture = pictureService.findByTitle(titlePictureComplete);
 				if(picture != null){
 					return new ModelAndView("picture-detail","picture", picture);
 				}
