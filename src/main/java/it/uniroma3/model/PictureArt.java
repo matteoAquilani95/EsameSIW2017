@@ -1,6 +1,9 @@
 package it.uniroma3.model;
 
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 @Entity
@@ -22,6 +26,7 @@ public class PictureArt {
 	private String title;
 	
 	@URL(message="this isn't a URL")
+	@Size(min=1, message="this camp can't be null")
 	private String link; //dove viene salvata la foto del quadro
 	
 	@NumberFormat
@@ -29,7 +34,7 @@ public class PictureArt {
 	
 	@Size(min=1, message="this camp can't be null")
 	private String technique;
-	
+	@Size(min=1, message="this camp can't be null")
 	private String dimension;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)

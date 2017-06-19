@@ -20,14 +20,14 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
-	@Size(min=3, message="devi inserire piu di 3 caratteri")
+	@Size(min=3, message="you have to insert more than 3 characters")
 	private String name;
 	
-	@Size(min=1, message="email non valida")
-	@Email(message="email non valida")
+	@Size(min=1, message="The email is wrong")
+	@Email(message="The email is wrong")
 	private String email;
 	
-	@Size(min=5, message="devi inserire piu di 5 caratteri")
+	@Size(min=5, message="you have to insert more than 5 characters")
 	private String password;
 	
 	private boolean enabled;
@@ -36,9 +36,6 @@ public class User {
 	@JoinTable
 	private List<Role> roles;
 	
-	/*@OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
-	private List<Blog> blogs;*/
-
 	public Long getId() {
 		return id;
 	}

@@ -52,7 +52,7 @@
 			<c:if test="${param.error eq true}">
 			<blockquote>
 				<p><img src="<c:url value="/resources/images/Wrong.png"/>" width="6%" />
-				 Email e Password Wrong! </p>
+				 Email or Password Wrong! </p>
 			</blockquote>
 			</c:if>
 			

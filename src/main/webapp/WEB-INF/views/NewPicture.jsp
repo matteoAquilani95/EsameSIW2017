@@ -25,8 +25,7 @@
 			<h3>Insert picture</h3>
 		</header>
 
-		<form:form commandName="picture" method="post"
-			cssClass="form-horizontal" enctype="multipart/form-data">
+		<form:form commandName="picture" method="post" cssClass="form-horizontal">
 
 			<div class="container 75%">
 				<div align="center">
@@ -42,7 +41,7 @@
 					<div class="form-group">
 						<div class="col-sm-10">
 							<form:input path="creationDate" cssClass="form-control"
-								placeholder="Creation Date" />
+								placeholder="Creation Date (es. 1554)" />
 							<form:errors path="creationDate" />
 						</div>
 					</div>
@@ -60,7 +59,7 @@
 					<div class="form-group">
 						<div class="col-sm-10">
 							<form:input path="dimension" cssClass="form-control"
-								placeholder="Dimensions" />
+								placeholder="Dimensions (es. 340x432)" />
 							<form:errors path="dimension" />
 						</div>
 					</div>

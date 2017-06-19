@@ -14,7 +14,6 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Artist {
@@ -39,7 +38,9 @@ public class Artist {
 	@Temporal(TemporalType.DATE)
 	private Date deathDate;
 	
-	@URL(message="this isn't a URL")
+	
+	@URL(message="this is not an URL")
+	@Size(min=1,message="this is not an URL")
 	private String link;
 	
 	@OneToMany(mappedBy="artist", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})

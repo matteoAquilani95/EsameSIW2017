@@ -61,16 +61,17 @@ public class SearchController {
 			return model;
 		}
 		else{
-			try{
 				PictureArt picture = pictureService.findByTitle(titlePicture);
-				return new ModelAndView("picture-detail","picture", picture);
+				if(picture != null){
+					return new ModelAndView("picture-detail","picture", picture);
+				}
+				else{
+					ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
+					model.addObject("error", true);
+					return model;
+				}
 				
-			}catch(NullPointerException e){
-				ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Picture not found");
-				model.addObject("error", true);
-				return model;
 			}
-		}
 		
 	}
 	

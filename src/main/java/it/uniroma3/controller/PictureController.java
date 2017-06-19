@@ -47,7 +47,7 @@ public class PictureController {
 	public String removePicture(@PathVariable("id") Long id){
 		Artist artist = pictureService.findOne(id).getArtist();
 		pictureService.remove(id);
-		return "redirect:/artists/"+artist.getId();
+		return "redirect:/pictureList/"+artist.getId();
 	}
 
 	//pictureArt

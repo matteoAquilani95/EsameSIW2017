@@ -19,7 +19,7 @@
 						Artist Inserted Successfully!
 					</p>
 					<a href='<spring:url value="/artists"/>' class="button alt small">
-						Return to List artist</a>
+						Return to Artists List</a>
 				</blockquote>
 				</div>
 			</c:if>
@@ -56,8 +56,7 @@
 					<div class="form-group">
 						<div class="col-sm-10">
 							<form:input path="dateOfBirth" cssClass="form-control"
-								placeholder="Birth date" />
-							<%-- <form:errors path="dateOfBirth" /> --%>
+								placeholder="Birth date (es. 1987/12/1))" />
 							${errorDate}
 						</div>
 					</div>
@@ -65,8 +64,7 @@
 					<div class="form-group">
 						<div class="col-sm-10">
 							<form:input path="deathDate" cssClass="form-control"
-								placeholder="Death date" />
-							<%-- <form:errors path="deathDate" /> --%>
+								placeholder="Death date (es. 1987/12/1)" />
 							${errorDate}
 						</div>
 					</div>

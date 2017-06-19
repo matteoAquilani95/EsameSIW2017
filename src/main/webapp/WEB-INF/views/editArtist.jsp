@@ -72,6 +72,15 @@
 						</div>
 					</div>
 					<br>
+					
+					<div class="form-group">
+						<div class="col-sm-10">
+							<form:input path="link" cssClass="form-control"
+								placeholder="Artist photo URL" />
+							<form:errors path="link" />
+						</div>
+					</div>
+					<br>
 
 					<div class="form-group">
 						<div class="col-sm-2">
