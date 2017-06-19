@@ -37,7 +37,12 @@ public class SearchController {
 			return model;
 		}
 		else{
-				List<Artist> artists = artistService.findArtistWithName(nameArtist);
+				String resto = nameArtist.substring(1, nameArtist.length());
+				char primaLettera = nameArtist.toUpperCase().charAt(0);
+				
+				String nomeArtistaGiusto = primaLettera + resto;
+				
+				List<Artist> artists = artistService.findArtistWithName(nomeArtistaGiusto);
 				if(artists.isEmpty()){
 					ModelAndView model = new ModelAndView("SearchPage","errorMsg", "Artist not found ");
 					model.addObject("error", true);
