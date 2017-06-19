@@ -29,7 +29,7 @@
 		<div class="inner">
 			<article class="feature left">
 				<span class="image"><img
-					src="<c:url value="/resources/images/artistList.jpg"/>" alt="" /></span>
+					src="<c:url value="/resources/images/artistList2.PNG"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can access into the artists list</h2>
 					<ul class="actions">
@@ -50,7 +50,7 @@
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 			<article class="feature left">
 				<span class="image"><img
-					src="<c:url value="/resources/images/de-chirico-ettore-e-andromaca.jpg"/>" alt="" /></span>
+					src="<c:url value="/resources/images/newArtist.PNG"/>" alt="" /></span>
 				<div class="content">
 					<h2>You can insert new artist</h2>
 					<ul class="actions">
