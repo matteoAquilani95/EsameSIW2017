@@ -14,6 +14,8 @@
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 				<a href="<spring:url value="/picture/${artist.id}" />"
 					class="button special"> Add Picture </a>
+				<a href="<spring:url value="/artists" />"
+					class="button special"> Return to Artist List </a>
 			</security:authorize>
 		</security:authorize>
 	</section>
